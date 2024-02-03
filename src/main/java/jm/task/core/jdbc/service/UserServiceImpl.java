@@ -10,11 +10,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserDaoJDBCImpl userDaoJDBCImpl;
     public UserServiceImpl() {
-        try {
-            this.userDaoJDBCImpl = new UserDaoJDBCImpl(new Util().getConnection());
-        } catch (SQLException e) {
-            throw new RuntimeException("Ошибка: " + e.getMessage());
-        }
+        this.userDaoJDBCImpl = new UserDaoJDBCImpl(new Util().getConnection());
     }
     public void createUsersTable() {
         userDaoJDBCImpl.createUsersTable();
